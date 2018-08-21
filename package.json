@@ -1,0 +1,25 @@
+{
+  "name": "test-psd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fs-extra": "^7.0.0",
+    "images": "^3.0.1",
+    "koa-body": "^4.0.4",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "psd": "^3.2.0",
+    "psd-parser": "^0.1.6",
+    "request": "^2.88.0"
+  },
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-route": "^3.2.0"
+  }
+}
