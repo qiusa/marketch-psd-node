@@ -45,9 +45,15 @@ app.use(async (ctx, next) => {
 const route = require('koa-route')
 
 const getPsdJson = ctx => {
-  console.info(99999, ctx.request.query)
-  let dirName = './psd/' + ctx.request.query.id
-  let outImg = './psd/' + ctx.request.query.id.split('.')[0] + '.png'
+  // http://yxupdate.nosdn.127.net/aeeab6a91be6452a8c7dd70e4e5b023b
+  let id = ctx.request.query.id.split('/').pop()
+  let psdDir = './psd/' // 指定存放psd文件的目录
+  let dirName = psdDir + id
+  let outImg = psdDir + id + '.png'
+  // 判断有没有指定文件夹 没有则创建一个
+  if (!fs.existsSync(psdDir)) {
+    fs.mkdirSync(psdDir);
+  }
   if (fs.existsSync(dirName)) {
     console.log('有缓存《《《《》》》》')
     // 获取真实psd数据
@@ -60,24 +66,33 @@ const getPsdJson = ctx => {
     psd.parse()
     let tree = psd.tree().export()
     console.info('压缩啊', outImg)
-    images(outImg).save(outImg, {
+    /* images(outImg).save(outImg, {
       quality: 200 //保存图片到文件,图片质量为50
-    })
-    ctx.body = {
-      code: 200,
-      tree,
-      preview:
-        'http://localhost:3000/' + outImg
+    }) */
+    if (!fs.existsSync(outImg)) {
+      // todo 是否要删除psd源文件
+      ctx.body = {
+        code: '301',
+        msg: '导出图片失败'
+      }
+    } else {
+      ctx.body = {
+        code: 200,
+        tree,
+        preview:
+          'http://localhost:3000/' + outImg
+      }
     }
+    
   } else {
-    console.log('没缓存》》》》》》')
+    console.log('没缓存》》》》》》', ctx.request.query.id, id)
     return new Promise((resolve, reject) => {
       let reader = request
-        .get('http://localhost:3000/' + ctx.request.query.id)
+        .get(ctx.request.query.id)
         .on('error', function(err) {
           console.log(666, err)
         })
-        .pipe(fs.createWriteStream('./psd/' + ctx.request.query.id))
+        .pipe(fs.createWriteStream(dirName))
       //监听文件流写入完成
       reader.on('close', () => {
         let psd = PSD.fromFile(dirName)
@@ -86,7 +101,7 @@ const getPsdJson = ctx => {
         psd.image
           .saveAsPng(outImg)
           .then(function() {
-            console.info('导出图片成功')
+            console.info('导出图片成功', outImg)
             images(outImg).save(outImg, {
               quality: 60 //保存图片到文件,图片质量为50
             })
