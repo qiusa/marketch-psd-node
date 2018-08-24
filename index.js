@@ -88,6 +88,7 @@ const getPsdJson = ctx => {
   let dirFolder = dirName + 'image/' // 指定存放切片文件夹
   let outImg = psdDir + id.replace(/\./g, '') + '.png' // 输出预览图路径
   let preview = 'http://127.0.0.1:3000/' + outImg.replace(/\.\//, '') // 预览图路径
+  let layerDir = 'http://127.0.0.1:3000/' + dirFolder.replace(/\.\//, '') // 切图路径
   // 判断有没有指定文件夹 没有则创建一个
   if (!fs.existsSync(psdDir)) {
     fs.mkdirSync(psdDir)
@@ -107,7 +108,8 @@ const getPsdJson = ctx => {
     ctx.body = {
       code: 200,
       tree,
-      preview
+      preview,
+      layerDir
     }
   } else {
     console.log('没缓存》》》》》》', ctx.request.query.id, id, dirName)
@@ -164,7 +166,8 @@ const getPsdJson = ctx => {
             ctx.body = {
               code: 200,
               tree,
-              preview
+              preview,
+              layerDir
             }
             resolve()
           })
