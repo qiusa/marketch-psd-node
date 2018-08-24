@@ -8,12 +8,48 @@ const fs = require('fs-extra')
 const path = require('path')
 const serve = require('koa-static')
 
-var PSD = require('psd')
-var PSD1 = require('psd-parser')
+let PSD = require('psd')
+let PSD1 = require('psd-parser')
 
 const images = require('images')
 const dirname = serve(path.join(__dirname))
 
+/**
+ * 同步创建多级目录
+ * @param {String} dirname 需要创建的目录 './a/b/c'
+ */
+function mkdirsSync (dirname) {
+  if (fs.existsSync(dirname)) {
+    return true
+  } else {
+    if (mkdirsSync(path.dirname(dirname))) {
+      fs.mkdirSync(dirname)
+      return true
+    }
+  }
+}
+/**
+ * 将 RGBA 转换成颜色表达式
+ *
+ * @param {Array[4]} value rgba 值
+ * @return {string} 返回颜色表达式
+ */
+function rgba2color(value) {
+  if (value[3] === 255) {
+    return (
+      '#' +
+      value
+        .slice(0, -1)
+        .map(function(value) {
+          return (0x100 + parseInt(value)).toString(16).slice(1)
+        })
+        .join('')
+        .replace(/(.)\1(.)\2(.)\3/, '$1$2$3')
+    )
+  } else {
+    return 'rgba(' + value.join() + ')'
+  }
+}
 // With async/await:
 async function example(dir) {
   try {
@@ -48,13 +84,15 @@ const getPsdJson = ctx => {
   // http://yxupdate.nosdn.127.net/aeeab6a91be6452a8c7dd70e4e5b023b
   let id = ctx.request.query.id.split('/').pop()
   let psdDir = './psd/' // 指定存放psd文件的目录
-  let dirName = psdDir + id
-  let outImg = psdDir + id + '.png'
+  let dirName = psdDir + id.replace(/\./g, '') // 指定psd文件路径
+  let dirFolder = dirName + 'image/' // 指定存放切片文件夹
+  let outImg = psdDir + id.replace(/\./g, '') + '.png' // 输出预览图路径
+  let preview = 'http://127.0.0.1:3000/' + outImg.replace(/\.\//, '') // 预览图路径
   // 判断有没有指定文件夹 没有则创建一个
   if (!fs.existsSync(psdDir)) {
-    fs.mkdirSync(psdDir);
+    fs.mkdirSync(psdDir)
   }
-  if (fs.existsSync(dirName)) {
+  if (fs.existsSync(dirName) && fs.existsSync(outImg)) {
     console.log('有缓存《《《《》》》》')
     // 获取真实psd数据
     /* psd = PSD1.parse(ctx.request.query.id);
@@ -65,27 +103,14 @@ const getPsdJson = ctx => {
     let psd = PSD.fromFile(dirName)
     psd.parse()
     let tree = psd.tree().export()
-    console.info('压缩啊', outImg)
-    /* images(outImg).save(outImg, {
-      quality: 200 //保存图片到文件,图片质量为50
-    }) */
-    if (!fs.existsSync(outImg)) {
-      // todo 是否要删除psd源文件
-      ctx.body = {
-        code: '301',
-        msg: '导出图片失败'
-      }
-    } else {
-      ctx.body = {
-        code: 200,
-        tree,
-        preview:
-          'http://localhost:3000/' + outImg
-      }
+
+    ctx.body = {
+      code: 200,
+      tree,
+      preview
     }
-    
   } else {
-    console.log('没缓存》》》》》》', ctx.request.query.id, id)
+    console.log('没缓存》》》》》》', ctx.request.query.id, id, dirName)
     return new Promise((resolve, reject) => {
       let reader = request
         .get(ctx.request.query.id)
@@ -98,6 +123,37 @@ const getPsdJson = ctx => {
         let psd = PSD.fromFile(dirName)
         psd.parse()
         let tree = psd.tree().export()
+        let promises = []
+        let descendants = psd.tree().descendants()
+        descendants.forEach(function(node, index) {
+          if (node.isGroup() || node.hidden()) {
+            return true
+          }
+          let nodeInfo = node.export()
+          if (nodeInfo.width <= 0 || nodeInfo.height <= 0) {
+            // 无效数据
+            return
+          }
+          if (!nodeInfo.text) {
+            // 非文本节点
+            let imageOutput = path.join(dirFolder, node.get('name')) + '.png'
+            if (!fs.existsSync(dirFolder)) {
+              mkdirsSync(dirFolder)
+            }
+            // 导出图片
+            promises.push(
+              node
+                .saveAsPng(imageOutput)
+                .then(() => {
+                  //console.info('导出切片图片成功》》》', imageOutput)
+                })
+                .catch(err => {
+                  console.error('obje2222ct', err)
+                })
+            )
+          }
+        })
+
         psd.image
           .saveAsPng(outImg)
           .then(function() {
@@ -108,8 +164,7 @@ const getPsdJson = ctx => {
             ctx.body = {
               code: 200,
               tree,
-              preview:
-                'http://localhost:3000/' + outImg
+              preview
             }
             resolve()
           })
