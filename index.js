@@ -15,7 +15,7 @@ const images = require('images')
 const dirname = serve(path.join(__dirname))
 
 const schedule = require('node-schedule')
-
+const log4js = require('./log/log')
 // 定时任务 清除缓存
 /* 每分钟的第30秒触发： '30 * * * * *'
   每小时的1分30秒触发 ：'30 1 * * * *'
