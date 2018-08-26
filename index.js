@@ -14,6 +14,25 @@ let PSD1 = require('psd-parser')
 const images = require('images')
 const dirname = serve(path.join(__dirname))
 
+const schedule = require('node-schedule')
+
+// 定时任务 清除缓存
+/* 每分钟的第30秒触发： '30 * * * * *'
+  每小时的1分30秒触发 ：'30 1 * * * *'
+  每天的凌晨1点1分30秒触发 ：'30 1 1 * * *'
+  每月的1日1点1分30秒触发 ：'30 1 1 1 * *'
+  2016年的1月1日1点1分30秒触发 ：'30 1 1 1 2016 *'
+  每周1的1点1分30秒触发 ：'30 1 1 * * 1' */
+function scheduleCronstyle(){
+  schedule.scheduleJob('30 1 1 1 * *', function(){
+    //清空文件夹
+    emptyPsdDir('./psd')
+    console.log('scheduleCronstyle:' + new Date());
+  }); 
+}
+
+scheduleCronstyle();
+
 /**
  * 同步创建多级目录
  * @param {String} dirname 需要创建的目录 './a/b/c'
@@ -50,8 +69,9 @@ function rgba2color(value) {
     return 'rgba(' + value.join() + ')'
   }
 }
+
 // With async/await:
-async function example(dir) {
+async function emptyPsdDir(dir) {
   try {
     await fs.emptyDir(dir)
     console.log(`clear ${dir}/psd success!`)
@@ -60,7 +80,7 @@ async function example(dir) {
   }
 }
 //清空文件夹
-// example('./psd')
+// emptyPsdDir('./psd')
 // logger
 
 app.use(async (ctx, next) => {
@@ -93,7 +113,7 @@ const getPsdJson = ctx => {
   if (!fs.existsSync(psdDir)) {
     fs.mkdirSync(psdDir)
   }
-  if (fs.existsSync(dirName) && fs.existsSync(outImg)) {
+  if (fs.existsSync(dirName) && fs.existsSync(outImg) && false) {
     console.log('有缓存《《《《》》》》')
     // 获取真实psd数据
     /* psd = PSD1.parse(ctx.request.query.id);
@@ -126,6 +146,7 @@ const getPsdJson = ctx => {
         psd.parse()
         let tree = psd.tree().export()
         let promises = []
+        //debugger
         let descendants = psd.tree().descendants()
         descendants.forEach(function(node, index) {
           if (node.isGroup() || node.hidden()) {
