@@ -23,12 +23,12 @@ const log4js = require('./log/log')
   每月的1日1点1分30秒触发 ：'30 1 1 1 * *'
   2016年的1月1日1点1分30秒触发 ：'30 1 1 1 2016 *'
   每周1的1点1分30秒触发 ：'30 1 1 * * 1' */
-function scheduleCronstyle(){
-  schedule.scheduleJob('30 1 1 1 * *', function(){
+function scheduleCronstyle() {
+  schedule.scheduleJob('30 1 1 1 * *', function () {
     //清空文件夹
     emptyPsdDir('./psd')
     console.log('scheduleCronstyle:' + new Date());
-  }); 
+  });
 }
 
 scheduleCronstyle();
@@ -37,7 +37,7 @@ scheduleCronstyle();
  * 同步创建多级目录
  * @param {String} dirname 需要创建的目录 './a/b/c'
  */
-function mkdirsSync (dirname) {
+function mkdirsSync(dirname) {
   if (fs.existsSync(dirname)) {
     return true
   } else {
@@ -59,7 +59,7 @@ function rgba2color(value) {
       '#' +
       value
         .slice(0, -1)
-        .map(function(value) {
+        .map(function (value) {
           return (0x100 + parseInt(value)).toString(16).slice(1)
         })
         .join('')
@@ -86,7 +86,10 @@ async function emptyPsdDir(dir) {
 app.use(async (ctx, next) => {
   await next()
   const rt = ctx.response.get('X-Response-Time')
-  console.log(`${Date.now()} ${ctx.method} ${ctx.url} - ${rt}`)
+  /* for(let i = 0; i < 1299; i++) {
+    log4js.info(`${i} ${Date.now()} ${ctx.method} ${ctx.url} - ${rt}`)
+  } */
+  log4js.info(`${Date.now()} ${ctx.method} ${ctx.url} - ${rt}`)
 })
 
 // x-response-time
@@ -100,6 +103,23 @@ app.use(async (ctx, next) => {
 // demos/06.js
 const route = require('koa-route')
 
+/**
+ *
+ * 使用psdjs解析psd
+ * @param {String} dirName psd路径
+ * @returns
+ */
+function parsePsd(dirName) {
+  let psd = PSD.fromFile(dirName)
+  psd.parse()
+  let tree = psd.tree().export()
+  let descendants = psd.tree().descendants()
+  return {
+    psd,
+    tree,
+    descendants
+  }
+}
 const getPsdJson = ctx => {
   // http://yxupdate.nosdn.127.net/aeeab6a91be6452a8c7dd70e4e5b023b
   let id = ctx.request.query.id.split('/').pop()
@@ -113,7 +133,7 @@ const getPsdJson = ctx => {
   if (!fs.existsSync(psdDir)) {
     fs.mkdirSync(psdDir)
   }
-  if (fs.existsSync(dirName) && fs.existsSync(outImg) && false) {
+  if (fs.existsSync(dirName) && fs.existsSync(outImg)) {
     console.log('有缓存《《《《》》》》')
     // 获取真实psd数据
     /* psd = PSD1.parse(ctx.request.query.id);
@@ -121,13 +141,10 @@ const getPsdJson = ctx => {
     tree_2 = psd.getTree()
     psd.saveAsPng(outImg) */
 
-    let psd = PSD.fromFile(dirName)
-    psd.parse()
-    let tree = psd.tree().export()
-
+    let psd = parsePsd(dirName)
     ctx.body = {
       code: 200,
-      tree,
+      tree: psd.tree,
       preview,
       layerDir
     }
@@ -136,19 +153,16 @@ const getPsdJson = ctx => {
     return new Promise((resolve, reject) => {
       let reader = request
         .get(ctx.request.query.id)
-        .on('error', function(err) {
+        .on('error', function (err) {
           console.log(666, err)
         })
         .pipe(fs.createWriteStream(dirName))
       //监听文件流写入完成
       reader.on('close', () => {
-        let psd = PSD.fromFile(dirName)
-        psd.parse()
-        let tree = psd.tree().export()
+        let psd = parsePsd(dirName)
         let promises = []
         //debugger
-        let descendants = psd.tree().descendants()
-        descendants.forEach(function(node, index) {
+        psd.descendants.forEach(function (node, index) {
           if (node.isGroup() || node.hidden()) {
             return true
           }
@@ -177,16 +191,16 @@ const getPsdJson = ctx => {
           }
         })
 
-        psd.image
+        psd.psd.image
           .saveAsPng(outImg)
-          .then(function() {
+          .then(function () {
             console.info('导出图片成功', outImg)
             images(outImg).save(outImg, {
               quality: 60 //保存图片到文件,图片质量为50
             })
             ctx.body = {
               code: 200,
-              tree,
+              tree: psd.tree,
               preview,
               layerDir
             }
