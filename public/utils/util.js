@@ -2,7 +2,7 @@
  * @Author: qs 
  * @Date: 2018-08-29 11:34:36 
  * @Last Modified by: qs
- * @Last Modified time: 2018-08-29 17:18:24
+ * @Last Modified time: 2018-08-29 17:32:59
  */
 const fs = require('fs-extra')
 const path = require('path')
@@ -140,9 +140,9 @@ const util = {
               node.InnerShadow = {
                 offset: {
                   distance: fx.IrSh['Dstn'].value + 'px', // 距离
-                  extra: fx.IrSh['Ckmt'].value, // 阻塞
+                  extra: fx.IrSh['Ckmt'].value + '%', // 阻塞
                 },
-                Effect: fx.IrSh['blur'].value, // 大小
+                Effect: fx.IrSh['blur'].value + 'px', // 大小
                 color: innerColor,
                 opacity: fx.IrSh.Opct.value + '%'
               }
@@ -151,14 +151,14 @@ const util = {
             // 在混合选项里里获取投影属性
             if (fx.DrSh && fx.DrSh.enab) {
               let ang = (180 - fx.DrSh['lagl'].value) * 3.14 / 180
-              let hShadowt = parseInt(Math.round(Math.cos(ang) * fx.DrSh['Dstn'].value)) + 'px'
-              let vShadowt = parseInt(Math.round(Math.sin(ang) * fx.DrSh['Dstn'].value)) + 'px'
+              let hShadowt = Math.ceil(Math.round(Math.cos(ang) * fx.DrSh['Dstn'].value)) + 'px'
+              let vShadowt = Math.ceil(Math.round(Math.sin(ang) * fx.DrSh['Dstn'].value)) + 'px'
 
               let spread = fx.DrSh['Ckmt'].value * fx.DrSh['blur'].value / 100
               let blur = fx.DrSh['blur'].value - spread
               let boxColor = this.rgba2color([fx.DrSh['Clr ']['Rd  '], fx.DrSh['Clr ']['Grn '], fx.DrSh['Clr ']['Bl  '], fx.DrSh.Opct.value / 100 * 255])
               node.boxShadow = {
-                style: hShadowt + ' ' + vShadowt + ' ' + blur + 'px ' + spread + 'px ' + boxColor,
+                style: hShadowt + ' ' + vShadowt + ' ' + Math.ceil(blur) + 'px ' + Math.ceil(spread) + 'px ' + boxColor,
                 offset: {
                   distance: fx.DrSh['Dstn'].value, // 距离
                   extra: fx.DrSh['Ckmt'].value, // 阻塞
