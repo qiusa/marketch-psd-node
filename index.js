@@ -114,10 +114,79 @@ function parsePsd(dirName) {
   psd.parse()
   let tree = psd.tree().export()
   let descendants = psd.tree().descendants()
+  util.tree = []
+  util.path = ''
+  util.traversalPsdTree(tree.children, 1, psd.tree())
+  console.info(util.tree)
   return {
     psd,
-    tree,
+    tree: util.tree,
+    document: tree.document,
+    treeParse: util.tree,
     descendants
+  }
+}
+const util = {
+  tree: [],
+  path: '',
+  spaceNum: 0,
+  /**
+     * psdTree扁平化方法
+     *
+     */
+  createSpaceStr(argument) {
+    let spaceStr = ''
+    for (let i = 0; i < this.spaceNum; i++) {
+      spaceStr += '->'
+    }
+    return spaceStr
+  },
+  /**
+   * psdTree扁平化入口
+   *
+   */
+  traversalPsdTree(tree, floor, data) {
+    let spaceStr = this.createSpaceStr()
+    let prefix = ''
+    for (let i = 0; i < tree.length; i++) {
+      let node = tree[i]
+      if (node.visible) {
+        if (node.type == 'group') {
+          if (this.path) {
+            this.path += ('/' + node.name)
+          } else {
+            this.path = node.name
+          }
+
+          this.spaceNum++
+          let next = floor + 1
+          prefix = this.path
+          //console.error(node.name, 'this.path', this.path);
+          this.traversalPsdTree(node.children, next, data)
+        } else {
+          if (this.path) {
+            this.path += ('/' + node.name)
+          } else {
+            this.path = node.name
+          }
+          node.path = this.path
+          if (data.childrenAtPath(node.path)[0] && data.childrenAtPath(node.path)[0].get('objectEffects') && data.childrenAtPath(node.path)[0].get('objectEffects').data) {
+            let fx = data.childrenAtPath(node.path)[0].get('objectEffects').data
+            // 在混合选项里里获取边框属性（注意：未满四个字符有空格补全作为key）
+            if (fx.FrFX) {
+              node.border = fx.FrFX['Sz  '].value + 'px solid rgba(' + fx.FrFX['Clr ']['Rd  '] + ',' + fx.FrFX['Clr ']['Grn '] + ',' + fx.FrFX['Clr ']['Bl  '] + ',' + fx.FrFX.Opct.value / 100 + ')'
+            }
+
+          }
+          //console.log(spaceStr + 'floor : ' + floor + '   node  : ' + i + ' ', node)
+          this.tree.push(node)
+          //let index = node.path.lastIndexOf("\/") 1/2/3
+          this.path = this.path.substring(0, this.path.lastIndexOf("\/"))
+          console.error('path2', this.path);
+        }
+      }
+    }
+    this.spaceNum--
   }
 }
 const getPsdJson = ctx => {
@@ -134,7 +203,7 @@ const getPsdJson = ctx => {
     fs.mkdirSync(psdDir)
   }
   if (fs.existsSync(dirName) && fs.existsSync(outImg)) {
-    console.log('有缓存《《《《》》》》')
+    console.log('有缓存《《《《》》》》', dirName, outImg)
     // 获取真实psd数据
     /* psd = PSD1.parse(ctx.request.query.id);
     tree = psd.getDescendants() //扁平化的图层数组
@@ -145,6 +214,8 @@ const getPsdJson = ctx => {
     ctx.body = {
       code: 200,
       tree: psd.tree,
+      document: psd.document,
+      treeParse: psd.treeParse,
       preview,
       layerDir
     }
@@ -201,6 +272,8 @@ const getPsdJson = ctx => {
             ctx.body = {
               code: 200,
               tree: psd.tree,
+              document: psd.document,
+              treeParse: psd.treeParse,
               preview,
               layerDir
             }
