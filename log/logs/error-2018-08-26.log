@@ -1,0 +1,5 @@
+[2018-08-26T20:04:26.146] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-26T20:04:26.147] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-26T20:04:26.148] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-26T20:04:26.148] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-26T20:04:26.148] [ERROR] log_file - 金卡贷记卡设计的

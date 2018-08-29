@@ -1,0 +1,288 @@
+[2018-08-28T13:52:05.220] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T13:52:05.222] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T13:52:05.222] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T13:52:05.222] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T13:52:07.881] [INFO] log_file - 1535435527881 GET /test3.psd - 3ms
+[2018-08-28T13:52:08.916] [INFO] log_file - 1535435528916 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 1063ms
+[2018-08-28T13:52:08.938] [INFO] log_file - 1535435528938 GET /psd/test3psd.png - 1ms
+[2018-08-28T15:38:15.362] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:38:15.363] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:38:15.363] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:38:15.364] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T15:38:51.932] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:38:51.934] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:38:51.935] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:38:51.935] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T15:39:58.115] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:39:58.116] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:39:58.116] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:39:58.116] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T15:40:55.384] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:40:55.385] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:40:55.386] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:40:55.386] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T15:41:03.381] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:41:03.382] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:41:03.382] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:41:03.382] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T15:41:10.156] [INFO] log_file - 1535442070156 GET /test3.psd - 3ms
+[2018-08-28T15:41:11.549] [INFO] log_file - 1535442071549 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 1442ms
+[2018-08-28T15:41:11.572] [INFO] log_file - 1535442071572 GET /psd/test3psd.png - 2ms
+[2018-08-28T15:41:18.421] [INFO] log_file - 1535442078421 GET /test3.psd - 0ms
+[2018-08-28T15:41:19.801] [INFO] log_file - 1535442079801 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 1384ms
+[2018-08-28T15:41:19.965] [INFO] log_file - 1535442079965 GET /psd/test3psd.png - 3ms
+[2018-08-28T15:41:29.327] [INFO] log_file - 1535442089327 GET /test3.psd - 1ms
+[2018-08-28T15:41:30.203] [INFO] log_file - 1535442090203 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 881ms
+[2018-08-28T15:41:30.219] [INFO] log_file - 1535442090219 GET /psd/test3psd.png - 1ms
+[2018-08-28T15:41:46.693] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T15:41:46.694] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T15:41:46.694] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T15:41:46.694] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:19:22.408] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:19:22.410] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:19:22.410] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:19:22.410] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:19:51.957] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:19:51.958] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:19:51.959] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:19:51.959] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:19:53.590] [INFO] log_file - 1535447993590 GET /psd/test6psd.png - 14ms
+[2018-08-28T17:19:54.767] [INFO] log_file - 1535447994767 GET /test6.psd - 4ms
+[2018-08-28T17:19:58.061] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:19:58.062] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:19:58.062] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:19:58.062] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:20:04.681] [INFO] log_file - 1535448004681 GET /test6.psd - 3ms
+[2018-08-28T17:20:07.122] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:20:07.123] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:20:07.124] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:20:07.124] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:20:32.169] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:20:32.170] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:20:32.170] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:20:32.171] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:20:36.218] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:20:36.219] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:20:36.219] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:20:36.219] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:20:41.296] [INFO] log_file - 1535448041296 GET /test6.psd - 2ms
+[2018-08-28T17:20:44.105] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:20:44.106] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:20:44.106] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:20:44.106] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:21:05.227] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:21:05.228] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:21:05.229] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:21:05.229] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:21:13.290] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:21:13.292] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:21:13.292] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:21:13.292] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:21:14.141] [INFO] log_file - 1535448074141 GET /test6.psd - 2ms
+[2018-08-28T17:21:30.480] [INFO] log_file - 1535448090480 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 16365ms
+[2018-08-28T17:21:30.721] [INFO] log_file - 1535448090721 GET /psd/test6psd.png - 2ms
+[2018-08-28T17:28:42.213] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:28:42.215] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:28:42.215] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:28:42.215] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:28:56.264] [INFO] log_file - 1535448536264 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 2321ms
+[2018-08-28T17:29:35.113] [INFO] log_file - 1535448575113 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 3083ms
+[2018-08-28T17:29:59.405] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:29:59.407] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:29:59.408] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:29:59.408] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:30:06.089] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:30:06.090] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:30:06.090] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:30:06.091] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:30:07.208] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:30:07.209] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:30:07.210] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:30:07.210] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:30:41.476] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:30:41.477] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:30:41.477] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:30:41.477] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:30:45.875] [INFO] log_file - 1535448645875 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 2005ms
+[2018-08-28T17:31:04.079] [INFO] log_file - 1535448664079 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 1521ms
+[2018-08-28T17:31:29.187] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:31:29.188] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:31:29.188] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:31:29.188] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:31:33.525] [INFO] log_file - 1535448693525 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 1753ms
+[2018-08-28T17:31:49.178] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:31:49.180] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:31:49.180] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:31:49.180] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:32:00.610] [INFO] log_file - 1535448720610 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 2633ms
+[2018-08-28T17:32:01.369] [INFO] log_file - 1535448721369 GET /psd/test6psd.png - 2ms
+[2018-08-28T17:37:37.877] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:37:37.879] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:37:37.879] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:37:37.879] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:37:49.083] [INFO] log_file - 1535449069083 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 2747ms
+[2018-08-28T17:37:49.887] [INFO] log_file - 1535449069887 GET /psd/test6psd.png - 3ms
+[2018-08-28T17:38:20.844] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:38:20.845] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:38:20.845] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:38:20.845] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:38:47.076] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:38:47.077] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:38:47.078] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:38:47.078] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:38:50.318] [INFO] log_file - 1535449130317 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest6.psd - 2673ms
+[2018-08-28T17:38:51.154] [INFO] log_file - 1535449131154 GET /psd/test6psd.png - 2ms
+[2018-08-28T17:39:44.225] [INFO] log_file - 1535449184225 GET /test3.psd - 1ms
+[2018-08-28T17:39:45.677] [INFO] log_file - 1535449185677 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 1467ms
+[2018-08-28T17:39:45.742] [INFO] log_file - 1535449185742 GET /psd/test3psd.png - 10ms
+[2018-08-28T17:39:59.471] [INFO] log_file - 1535449199471 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 64ms
+[2018-08-28T17:39:59.958] [INFO] log_file - 1535449199958 GET /psd/test3psd.png - 1ms
+[2018-08-28T17:40:51.424] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T17:40:51.425] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T17:40:51.425] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T17:40:51.425] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T17:40:52.026] [INFO] log_file - 1535449252026 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest3.psd - 51ms
+[2018-08-28T17:40:52.479] [INFO] log_file - 1535449252479 GET /psd/test3psd.png - 2ms
+[2018-08-28T17:41:10.051] [INFO] log_file - 1535449270051 GET /test4psd - 1ms
+[2018-08-28T17:41:10.065] [INFO] log_file - 1535449270065 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest4psd - 28ms
+[2018-08-28T17:41:24.710] [INFO] log_file - 1535449284710 GET /test2psd - 1ms
+[2018-08-28T17:41:24.716] [INFO] log_file - 1535449284716 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2psd - 10ms
+[2018-08-28T17:41:30.071] [INFO] log_file - 1535449290071 GET /test2.psd - 1ms
+[2018-08-28T17:41:33.678] [INFO] log_file - 1535449293678 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 3610ms
+[2018-08-28T17:41:33.712] [INFO] log_file - 1535449293712 GET /psd/test2psd.png - 2ms
+[2018-08-28T18:55:02.698] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:55:02.700] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:55:02.700] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:55:02.700] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:55:06.929] [INFO] log_file - 1535453706929 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 149ms
+[2018-08-28T18:55:07.510] [INFO] log_file - 1535453707510 GET /psd/test2psd.png - 5ms
+[2018-08-28T18:55:38.758] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:55:38.759] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:55:38.759] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:55:38.759] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:55:39.949] [INFO] log_file - 1535453739949 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 87ms
+[2018-08-28T18:55:40.225] [INFO] log_file - 1535453740225 GET /psd/test2psd.png - 2ms
+[2018-08-28T18:55:49.163] [INFO] log_file - 1535453749163 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 49ms
+[2018-08-28T18:55:49.521] [INFO] log_file - 1535453749521 GET /psd/test2psd.png - 2ms
+[2018-08-28T18:56:55.330] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:56:55.334] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:56:55.334] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:56:55.334] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:57:00.312] [INFO] log_file - 1535453820312 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 104ms
+[2018-08-28T18:57:00.715] [INFO] log_file - 1535453820715 GET /psd/test2psd.png - 3ms
+[2018-08-28T18:58:06.983] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:58:06.984] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:58:06.984] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:58:06.984] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:58:28.152] [INFO] log_file - 1535453908152 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 97ms
+[2018-08-28T18:58:28.422] [INFO] log_file - 1535453908422 GET /psd/test2psd.png - 2ms
+[2018-08-28T18:58:53.994] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:58:53.995] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:58:53.995] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:58:53.996] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:59:00.821] [INFO] log_file - 1535453940821 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 91ms
+[2018-08-28T18:59:01.123] [INFO] log_file - 1535453941123 GET /psd/test2psd.png - 3ms
+[2018-08-28T18:59:34.044] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T18:59:34.046] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T18:59:34.046] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T18:59:34.046] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T18:59:34.689] [INFO] log_file - 1535453974689 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 107ms
+[2018-08-28T18:59:34.976] [INFO] log_file - 1535453974976 GET /psd/test2psd.png - 3ms
+[2018-08-28T19:01:28.592] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:01:28.595] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:01:28.595] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:01:28.595] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:04:35.115] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:04:35.116] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:04:35.116] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:04:35.117] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:04:35.828] [INFO] log_file - 1535454275828 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 174ms
+[2018-08-28T19:04:36.206] [INFO] log_file - 1535454276206 GET /psd/test2psd.png - 2ms
+[2018-08-28T19:04:45.723] [INFO] log_file - 1535454285723 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 60ms
+[2018-08-28T19:04:46.139] [INFO] log_file - 1535454286139 GET /psd/test2psd.png - 2ms
+[2018-08-28T19:05:16.475] [INFO] log_file - 1535454316475 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 126ms
+[2018-08-28T19:05:16.984] [INFO] log_file - 1535454316984 GET /psd/test2psd.png - 2ms
+[2018-08-28T19:05:55.175] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:05:55.176] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:05:55.176] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:05:55.176] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:05:56.988] [INFO] log_file - 1535454356988 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 105ms
+[2018-08-28T19:05:57.315] [INFO] log_file - 1535454357315 GET /psd/test2psd.png - 2ms
+[2018-08-28T19:10:57.223] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:10:57.225] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:10:57.225] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:10:57.225] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:11:05.263] [INFO] log_file - 1535454665263 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 135ms
+[2018-08-28T19:11:05.700] [INFO] log_file - 1535454665700 GET /psd/test2psd.png - 22ms
+[2018-08-28T19:19:16.484] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:19:16.516] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:19:16.517] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:19:16.517] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:19:18.288] [INFO] log_file - 1535455158288 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 99ms
+[2018-08-28T19:19:18.654] [INFO] log_file - 1535455158654 GET /psd/test2psd.png - 4ms
+[2018-08-28T19:27:57.314] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:27:57.316] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:27:57.316] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:27:57.316] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:27:59.117] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:27:59.118] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:27:59.118] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:27:59.118] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:28:25.383] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:28:25.384] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:28:25.384] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:28:25.384] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:28:46.258] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:28:46.259] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:28:46.259] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:28:46.259] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:28:53.423] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:28:53.424] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:28:53.424] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:28:53.424] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:28:58.477] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:28:58.481] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:28:58.481] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:28:58.486] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:29:03.296] [INFO] log_file - 1535455743295 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 179ms
+[2018-08-28T19:29:03.751] [INFO] log_file - 1535455743751 GET /psd/test2psd.png - 3ms
+[2018-08-28T19:29:55.673] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:29:55.675] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:29:55.675] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:29:55.675] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:29:57.069] [INFO] log_file - 1535455797069 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 108ms
+[2018-08-28T19:29:57.394] [INFO] log_file - 1535455797394 GET /psd/test2psd.png - 2ms
+[2018-08-28T19:31:32.965] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:31:32.967] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:31:32.967] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:31:32.967] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:31:34.773] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:31:34.775] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:31:34.775] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:31:34.775] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:31:35.771] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:31:35.772] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:31:35.772] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:31:35.772] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:31:37.743] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:31:37.744] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:31:37.744] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:31:37.744] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:31:49.655] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:31:49.656] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:31:49.656] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:31:49.656] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:31:50.910] [INFO] log_file - 1535455910910 GET /getPsdJson?id=http:%2F%2F127.0.0.1:3000%2Ftest2.psd - 122ms
+[2018-08-28T19:31:51.210] [INFO] log_file - 1535455911209 GET /psd/test2psd.png - 3ms
+[2018-08-28T19:32:20.095] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:32:20.096] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:32:20.097] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:32:20.097] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:32:24.912] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:32:24.914] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:32:24.914] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:32:24.914] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
+[2018-08-28T19:33:58.510] [DEBUG] log_file - We Write Logs with log4js
+[2018-08-28T19:33:58.511] [INFO] log_file - You can find logs-files in the log-dir
+[2018-08-28T19:33:58.512] [WARN] log_file - log-dir is a configuration-item in the log4js.json
+[2018-08-28T19:33:58.512] [ERROR] log_file - In This Test log-dir is : './logs/log_test/'
