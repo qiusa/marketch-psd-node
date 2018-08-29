@@ -2,7 +2,7 @@
  * @Author: qs 
  * @Date: 2018-08-29 11:34:36 
  * @Last Modified by: qs
- * @Last Modified time: 2018-08-29 14:29:58
+ * @Last Modified time: 2018-08-29 17:18:24
  */
 const fs = require('fs-extra')
 const path = require('path')
@@ -43,6 +43,7 @@ const util = {
           .replace(/(.)\1(.)\2(.)\3/, '$1$2$3')
       )
     } else {
+      value[3] = value[3] / 255
       return 'rgba(' + value.join() + ')'
     }
   },
@@ -129,9 +130,43 @@ const util = {
           if (data.childrenAtPath(node.path)[0] && data.childrenAtPath(node.path)[0].get('objectEffects') && data.childrenAtPath(node.path)[0].get('objectEffects').data) {
             let fx = data.childrenAtPath(node.path)[0].get('objectEffects').data
             // 在混合选项里里获取边框属性（注意：未满四个字符有空格补全作为key）
-            if (fx.FrFX) {
-              let color = this.rgba2color([fx.FrFX['Clr ']['Rd  '], fx.FrFX['Clr ']['Grn '], fx.FrFX['Clr ']['Bl  '], fx.FrFX.Opct.value / 100 * 255])
-              node.border = fx.FrFX['Sz  '].value + 'px solid ' + color
+            if (fx.FrFX && fx.FrFX.enab) {
+              let borderColor = this.rgba2color([fx.FrFX['Clr ']['Rd  '], fx.FrFX['Clr ']['Grn '], fx.FrFX['Clr ']['Bl  '], fx.FrFX.Opct.value / 100 * 255])
+              node.border = fx.FrFX['Sz  '].value + 'px solid ' + borderColor
+            }
+            // 在混合选项里里获取内阴影属性
+            if (fx.IrSh && fx.IrSh.enab) {
+              let innerColor = this.rgba2color([fx.IrSh['Clr ']['Rd  '], fx.IrSh['Clr ']['Grn '], fx.IrSh['Clr ']['Bl  '], fx.IrSh.Opct.value / 100 * 255])
+              node.InnerShadow = {
+                offset: {
+                  distance: fx.IrSh['Dstn'].value + 'px', // 距离
+                  extra: fx.IrSh['Ckmt'].value, // 阻塞
+                },
+                Effect: fx.IrSh['blur'].value, // 大小
+                color: innerColor,
+                opacity: fx.IrSh.Opct.value + '%'
+              }
+            }
+            console.error('---', fx)
+            // 在混合选项里里获取投影属性
+            if (fx.DrSh && fx.DrSh.enab) {
+              let ang = (180 - fx.DrSh['lagl'].value) * 3.14 / 180
+              let hShadowt = parseInt(Math.round(Math.cos(ang) * fx.DrSh['Dstn'].value)) + 'px'
+              let vShadowt = parseInt(Math.round(Math.sin(ang) * fx.DrSh['Dstn'].value)) + 'px'
+
+              let spread = fx.DrSh['Ckmt'].value * fx.DrSh['blur'].value / 100
+              let blur = fx.DrSh['blur'].value - spread
+              let boxColor = this.rgba2color([fx.DrSh['Clr ']['Rd  '], fx.DrSh['Clr ']['Grn '], fx.DrSh['Clr ']['Bl  '], fx.DrSh.Opct.value / 100 * 255])
+              node.boxShadow = {
+                style: hShadowt + ' ' + vShadowt + ' ' + blur + 'px ' + spread + 'px ' + boxColor,
+                offset: {
+                  distance: fx.DrSh['Dstn'].value, // 距离
+                  extra: fx.DrSh['Ckmt'].value, // 阻塞
+                },
+                Effect: fx.DrSh['blur'].value, // 大小
+                color: boxColor,
+                opacity: fx.DrSh.Opct.value + '%'
+              }
             }
 
           }
