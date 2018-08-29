@@ -1,12 +1,13 @@
 /*
  * @Author: qs 
  * @Date: 2018-08-29 11:34:02 
- * @Last Modified by:   qs 
- * @Last Modified time: 2018-08-29 11:34:02 
+ * @Last Modified by: qs
+ * @Last Modified time: 2018-08-29 12:35:54
  */
 
 const schedule = require('node-schedule')
 const log4js = require('../log/log')
+const util = require('../public/utils/util')
 /**
  * 定时任务 情况目录
  * 每分钟的第30秒触发： '30 * * * * *'

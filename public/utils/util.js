@@ -1,8 +1,8 @@
 /*
  * @Author: qs 
  * @Date: 2018-08-29 11:34:36 
- * @Last Modified by:   qs 
- * @Last Modified time: 2018-08-29 11:34:36 
+ * @Last Modified by: qs
+ * @Last Modified time: 2018-08-29 14:29:58
  */
 const fs = require('fs-extra')
 const path = require('path')
@@ -130,7 +130,8 @@ const util = {
             let fx = data.childrenAtPath(node.path)[0].get('objectEffects').data
             // 在混合选项里里获取边框属性（注意：未满四个字符有空格补全作为key）
             if (fx.FrFX) {
-              node.border = fx.FrFX['Sz  '].value + 'px solid rgba(' + fx.FrFX['Clr ']['Rd  '] + ',' + fx.FrFX['Clr ']['Grn '] + ',' + fx.FrFX['Clr ']['Bl  '] + ',' + fx.FrFX.Opct.value / 100 + ')'
+              let color = this.rgba2color([fx.FrFX['Clr ']['Rd  '], fx.FrFX['Clr ']['Grn '], fx.FrFX['Clr ']['Bl  '], fx.FrFX.Opct.value / 100 * 255])
+              node.border = fx.FrFX['Sz  '].value + 'px solid ' + color
             }
 
           }
