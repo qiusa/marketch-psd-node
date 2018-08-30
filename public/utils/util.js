@@ -2,7 +2,7 @@
  * @Author: qs 
  * @Date: 2018-08-29 11:34:36 
  * @Last Modified by: qs
- * @Last Modified time: 2018-08-29 17:32:59
+ * @Last Modified time: 2018-08-30 13:43:28
  */
 const fs = require('fs-extra')
 const path = require('path')
@@ -121,6 +121,7 @@ const util = {
           //console.error(node.name, 'this.path', this.path);
           this.traversalPsdTree(node.children, next, data)
         } else {
+          // TODO: path计算存在问题
           if (this.path) {
             this.path += ('/' + node.name)
           } else {
@@ -147,7 +148,7 @@ const util = {
                 opacity: fx.IrSh.Opct.value + '%'
               }
             }
-            console.error('---', fx)
+            //console.error('---', fx)
             // 在混合选项里里获取投影属性
             if (fx.DrSh && fx.DrSh.enab) {
               let ang = (180 - fx.DrSh['lagl'].value) * 3.14 / 180
@@ -174,7 +175,7 @@ const util = {
           this.tree.push(node)
           //let index = node.path.lastIndexOf("\/") 1/2/3
           this.path = this.path.substring(0, this.path.lastIndexOf("\/"))
-          console.error('path2', this.path);
+          //console.error('path2', this.path);
         }
       }
     }

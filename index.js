@@ -1,8 +1,8 @@
 /*
  * @Author: qs 
  * @Date: 2018-08-29 11:34:16 
- * @Last Modified by:   qs 
- * @Last Modified time: 2018-08-29 11:34:16 
+ * @Last Modified by: qs
+ * @Last Modified time: 2018-08-30 13:50:14
  */
 const Koa = require('koa')
 const app = new Koa()
@@ -59,11 +59,12 @@ const getPsdJson = ctx => {
     let psd = util.parsePsd(dirName)
     ctx.body = {
       code: 200,
-      tree: psd.tree,
-      document: psd.document,
-      treeParse: psd.treeParse,
-      preview,
-      layerDir
+      data: {
+        tree: psd.tree,
+        document: psd.document,
+        preview,
+        layerDir
+      }
     }
   } else {
     console.log('没缓存》》》》》》', ctx.request.query.id, id, dirName)
@@ -77,37 +78,6 @@ const getPsdJson = ctx => {
       //监听文件流写入完成
       reader.on('close', () => {
         let psd = util.parsePsd(dirName)
-        let promises = []
-        //debugger
-        psd.descendants.forEach(function (node, index) {
-          if (node.isGroup() || node.hidden()) {
-            return true
-          }
-          let nodeInfo = node.export()
-          if (nodeInfo.width <= 0 || nodeInfo.height <= 0) {
-            // 无效数据
-            return
-          }
-          if (!nodeInfo.text) {
-            // 非文本节点
-            let imageOutput = path.join(dirFolder, node.get('name')) + '.png'
-            if (!fs.existsSync(dirFolder)) {
-              util.mkdirsSync(dirFolder)
-            }
-            // 导出图片
-            promises.push(
-              node
-                .saveAsPng(imageOutput)
-                .then(() => {
-                  //console.info('导出切片图片成功》》》', imageOutput)
-                })
-                .catch(err => {
-                  console.error('obje2222ct', err)
-                })
-            )
-          }
-        })
-
         psd.psd.image
           .saveAsPng(outImg)
           .then(function () {
@@ -117,11 +87,12 @@ const getPsdJson = ctx => {
             })
             ctx.body = {
               code: 200,
-              tree: psd.tree,
-              document: psd.document,
-              treeParse: psd.treeParse,
-              preview,
-              layerDir
+              data: {
+                tree: psd.tree,
+                document: psd.document,
+                preview,
+                layerDir
+              }
             }
             resolve()
           })
@@ -133,11 +104,44 @@ const getPsdJson = ctx => {
             }
             resolve()
           })
+
+        // 导图层
+        //exportLayer(psd, dirFolder)
       })
     })
   }
 }
-
+function exportLayer(psd, dirFolder) {
+  let promises = []
+  psd.descendants.forEach(function (node, index) {
+    if (node.isGroup() || node.hidden()) {
+      return true
+    }
+    let nodeInfo = node.export()
+    if (nodeInfo.width <= 0 || nodeInfo.height <= 0) {
+      // 无效数据
+      return
+    }
+    if (!nodeInfo.text) {
+      // 非文本节点
+      let imageOutput = path.join(dirFolder, node.get('name')) + '.png'
+      if (!fs.existsSync(dirFolder)) {
+        util.mkdirsSync(dirFolder)
+      }
+      // 导出图片
+      promises.push(
+        node
+          .saveAsPng(imageOutput)
+          .then(() => {
+            //console.info('导出切片图片成功》》》', imageOutput)
+          })
+          .catch(err => {
+            console.error('obje2222ct', err)
+          })
+      )
+    }
+  })
+}
 const main = ctx => {
   ctx.throw(500)
   //ctx.response.body = fs.readFile('./psd.js', 'utf8')
